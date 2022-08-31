@@ -1,0 +1,93 @@
+﻿  Graphs.cpp
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(56,28): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(231,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(232,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(266,68): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(266,59): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(271,66): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(271,57): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(286,68): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(286,59): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(291,66): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(291,57): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(301,58): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(301,49): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(309,58): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(309,49): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(456,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(456,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(612,33): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(619,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(647,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(653,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(657,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(707,20): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(709,9): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(740,20): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(750,20): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(855,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GraphsAndAStar.vcxproj -> E:\Programming\GraphsAndAStar\Debug\GraphsAndAStar.exe
