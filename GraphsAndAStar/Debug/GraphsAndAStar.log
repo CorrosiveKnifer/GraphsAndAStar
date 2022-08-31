@@ -1,51 +1,40 @@
-﻿  Graphs.cpp
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(56,28): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  AStarDisplay.cpp
+  BackBuffer.cpp
+  Button.cpp
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(49,33): warning C4244: '=': conversion from 'const T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(50,33): warning C4244: '=': conversion from 'const T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(103,15): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(103,32): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(103,58): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(103,75): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(131,15): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(131,32): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(131,58): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(131,75): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(156,14): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(156,31): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(156,57): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(156,74): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(178,13): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(178,30): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(178,56): warning C4018: '>=': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Button.cpp(178,73): warning C4018: '<': signed/unsigned mismatch
+  Graphs.cpp
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(56,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(231,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
           ]
 E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(232,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(266,68): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(266,59): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(271,66): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(271,57): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(286,68): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(286,59): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(291,66): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(291,57): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
           with
           [
               T=float
@@ -70,24 +59,15 @@ E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(309,49): warning C4244: 
           [
               T=float
           ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(456,61): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(456,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(612,33): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(619,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(647,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(653,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(657,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(710,20): warning C4018: '<': signed/unsigned mismatch
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(712,9): warning C4018: '<': signed/unsigned mismatch
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(743,20): warning C4018: '<': signed/unsigned mismatch
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(753,20): warning C4018: '<': signed/unsigned mismatch
-E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(858,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(612,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(619,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(707,20): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(709,9): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(740,20): warning C4018: '<': signed/unsigned mismatch
+E:\Programming\GraphsAndAStar\GraphsAndAStar\Graphs.cpp(750,20): warning C4018: '<': signed/unsigned mismatch
+  InputHandler.cpp
+  Window.cpp
+  main.cpp
+E:\Programming\GraphsAndAStar\GraphsAndAStar\main.cpp(30,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   GraphsAndAStar.vcxproj -> E:\Programming\GraphsAndAStar\Debug\GraphsAndAStar.exe

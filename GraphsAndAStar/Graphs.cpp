@@ -53,7 +53,7 @@ bool Graph::Initialise()
 	BackBuffer* _b = new BackBuffer();
 	_b->Initialise(m_width, m_height);
 	_b->LoadFont("Assets/font.ttf");
-	_b->SetFontSize(NODE_SIZE * 1.5);
+	_b->SetFontSize(static_cast<float>(NODE_SIZE * 1.5));
 
 	//Create Node Button:
 	sf::Sprite* sp = _b->CreateSprite("Assets/btnNode.png");
@@ -263,12 +263,12 @@ void Graph::MousePressed(const int& _mouseX, const int& _mouseY)
 			//Display edge being created...
 			if (tempEdge->from == 0)
 			{
-				tempEdge->from = GetFirstNodeOverlapping(sf::Vector2f(_mouseX, _mouseY));
+				tempEdge->from = GetFirstNodeOverlapping(sf::Vector2f(static_cast<float>(_mouseX), static_cast<float>(_mouseY)));
 				tempEdge->isUnidirectional = true;
 			}
 			else
 			{
-				tempEdge->to = GetFirstNodeOverlapping(sf::Vector2f(_mouseX, _mouseY));
+				tempEdge->to = GetFirstNodeOverlapping(sf::Vector2f(static_cast<float>(_mouseX), static_cast<float>(_mouseY)));
 				if (tempEdge->from == tempEdge->to)
 					tempEdge->to = 0;
 			}
@@ -283,12 +283,12 @@ void Graph::MousePressed(const int& _mouseX, const int& _mouseY)
 			//Display edge being created...
 			if (tempEdge->from == 0)
 			{
-				tempEdge->from = GetFirstNodeOverlapping(sf::Vector2f(_mouseX, _mouseY));
+				tempEdge->from = GetFirstNodeOverlapping(sf::Vector2f(static_cast<float>(_mouseX), static_cast<float>(_mouseY)));
 				tempEdge->isUnidirectional = false;
 			}
 			else
 			{
-				tempEdge->to = GetFirstNodeOverlapping(sf::Vector2f(_mouseX, _mouseY));
+				tempEdge->to = GetFirstNodeOverlapping(sf::Vector2f(static_cast<float>(_mouseX), static_cast<float>(_mouseY)));
 			}
 			//or create edge:
 			if (tempEdge->from != 0 && tempEdge->to != 0)
@@ -453,7 +453,7 @@ void Graph::CreateNode(int _mouseX, int _mouseY)
 {
 	//Create a temporary node:
 	GNode* temp = new GNode();
-	temp->worldPos = sf::Vector2f(_mouseX - NODE_SIZE, _mouseY - NODE_SIZE);
+	temp->worldPos = sf::Vector2f(static_cast<float>(_mouseX - NODE_SIZE), static_cast<float>(_mouseY - NODE_SIZE));
 	temp->name = m_nextNodeName;
 	temp->state = GNodeState::CLEAN;
 
@@ -609,14 +609,14 @@ void Graph::DrawContents(BackBuffer& buffer)
 	{
 		if (!m_BFSRunning && !m_DFSRunning)
 		{
-			buffer.SetFontSize(NODE_SIZE * 1.5);
+			buffer.SetFontSize(static_cast<float>(NODE_SIZE * 1.5));
 			buffer.SetFontAlign(Align::Left);
 			buffer.DrawText("Select a node to start from...", 30, 610);
 		}
 	}
 	else if (m_displayResult)//Display Done:
 	{
-		buffer.SetFontSize(NODE_SIZE * 1.5);
+		buffer.SetFontSize(static_cast<float>(NODE_SIZE * 1.5));
 		buffer.SetFontAlign(Align::Left);
 		buffer.DrawText("Done!", 30, 610);
 	}
@@ -643,18 +643,18 @@ void Graph::DrawNode(BackBuffer& buffer, GNode& n)
 	switch (n.state) //Colour depends on state:
 	{
 	default:
-	case CLEAN:
-		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, NODE_SIZE, false);
+	case GNodeState::CLEAN :
+		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, static_cast<float>(NODE_SIZE), false);
 		break;
 
-	case QUEUED:
-	case STACKED:
+	case GNodeState::QUEUED:
+	case GNodeState::STACKED:
 		buffer.SetColour(sf::Color::Red);
-		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, NODE_SIZE);
+		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, static_cast<float>(NODE_SIZE));
 		break;
-	case SEARCHED:
+	case GNodeState::SEARCHED:
 		buffer.SetColour(sf::Color::Green);
-		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, NODE_SIZE);
+		buffer.DrawCircle(n.worldPos.x, n.worldPos.y, static_cast<float>(NODE_SIZE));
 		break;
 	}
 
@@ -852,7 +852,7 @@ GNode* Graph::GetFirstNodeOverlapping(sf::Vector2f postion)
 	{
 		//Circle vs Circle(circle with 0 width) collision.
 		sf::Vector2f loc(n->worldPos.x + NODE_SIZE, n->worldPos.y + NODE_SIZE);
-		if (std::powf(loc.x - postion.x, 2) + std::powf(loc.y - postion.y, 2) <= std::powf(NODE_SIZE + 0, 2))
+		if (std::powf(loc.x - postion.x, 2.0f) + std::powf(loc.y - postion.y, 2.0f) <= std::powf(static_cast<float>(NODE_SIZE), 2.0f))
 		{
 			return n;
 		}
@@ -919,7 +919,7 @@ void Graph::RunBFS()
 	m_displayList.pop_front();
 
 	//If the popped node hasn't been searched...
-	if (temp->state != SEARCHED)
+	if (temp->state != GNodeState::SEARCHED)
 	{
 		//Add to search and update the node's status.
 		temp->state = GNodeState::SEARCHED;

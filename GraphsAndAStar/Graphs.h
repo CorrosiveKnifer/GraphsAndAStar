@@ -28,7 +28,7 @@ class Button;
 struct GEdge;
 
 //Enums
-enum GNodeState { CLEAN, QUEUED, STACKED, SEARCHED };
+enum class GNodeState { CLEAN, QUEUED, STACKED, SEARCHED };
 
 //Structures
 struct GNode

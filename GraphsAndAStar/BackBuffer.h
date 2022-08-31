@@ -23,10 +23,7 @@
 //Forward Declaration
 class SpriteTrack;
 
-enum Align
-{
-	Left, Centre, Right
-};
+enum class Align{ Left, Centre, Right };
 
 //Implementation
 class BackBuffer

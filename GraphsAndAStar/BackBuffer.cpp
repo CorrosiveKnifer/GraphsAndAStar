@@ -54,15 +54,15 @@ bool BackBuffer::Initialise(int _w, int _h)
 	{
 		m_width = _w;
 		m_height = _h;
-		m_pWindow = new sf::RenderWindow(sf::VideoMode(m_width, m_height), "Space Invaders");
+		m_pWindow = new sf::RenderWindow(sf::VideoMode(m_width, m_height), "Graph and A* by Michael R. Jordan");
 		m_pWindow->setFramerateLimit(60);
 		m_pWindow->setVerticalSyncEnabled(true);
 		m_pTextureMap = new std::map<std::string, sf::Texture*>();
 		m_WindowPos = m_pWindow->getPosition();
 		
 
-		viewport.setCenter(m_width / 2, m_height / 2);
-		viewport.setSize(m_width, m_height);
+		viewport.setCenter(m_width / 2.0f, m_height / 2.0f);
+		viewport.setSize(static_cast<float>(m_width), static_cast<float>(m_height));
 		m_pWindow->setView(viewport);
 		return true;
 	}
