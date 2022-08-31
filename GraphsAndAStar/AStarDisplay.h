@@ -23,7 +23,7 @@
 class Button;
 
 //Enums
-enum ANodeState {NONE, WALL, COLLECTED, SELECTED, PATH};
+enum class ANodeState {NONE, WALL, COLLECTED, SELECTED, PATH};
 
 //Structures
 struct Node
@@ -56,7 +56,7 @@ public:
 	//Compare algorithm:
 	bool operator()(Node* a, Node* b) { return (a->H + a->G) > (b->H + b->G); }
 private:
-	enum Mode { NONE, START, END, WALL, RUN };
+	enum class Mode { NONE, START, END, WALL, RUN };
 	
 	//Handle and edit nodes:
 	void HandleBoardClickEvent(int i, int j);

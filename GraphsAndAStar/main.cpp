@@ -104,6 +104,7 @@ void RunAStar()
 		std::cout << "        ~ Set Up Menu ~        " << std::endl;
 		std::cout << "===============================" << std::endl;
 		std::cout << "Limit: " << std::to_string(WIDTH_LIMIT) << "x" << std::to_string(HEIGHT_LIMIT) << std::endl;
+		std::cout << "Recommend increments of: 10x6" << std::endl;
 		std::cout << "Window options:                " << std::endl;
 		
 		//Error Message

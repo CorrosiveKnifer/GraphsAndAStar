@@ -21,7 +21,7 @@
 AStarDisplay::AStarDisplay()
 	: m_width(1280), m_height(720), m_columns(0), m_rows(0) //Size
 	, m_isWalls(false), m_showValues(false), m_isRunningAStar(false), m_isDisplayingPath(false) //Booleans
-	, m_userMode(Mode::NONE), m_fontSize(15)
+	, m_userMode(AStarDisplay::Mode::NONE), m_fontSize(15)
 	, mousePressed(0), m_pStart(0), m_pEnd(0), m_nodes(0)//Pointers
 	, m_btnStart(0), m_btnEnd(0), m_btnWall(0), m_btnRun(0), m_btnShow(0), m_btnClear(0), m_btnClearAll(0), m_btnQuit(0) //Buttons
 	, m_time(0.0f), m_displayTime(0.0f) //Time
@@ -65,10 +65,10 @@ bool AStarDisplay::Initialise(unsigned int columns, unsigned int rows)
 		{
 			m_nodes[i][j].G = 0;
 			m_nodes[i][j].H = 0;
-			m_nodes[i][j].m_x = 0 + xlimit /columns * j;
-			m_nodes[i][j].m_y = 0 + ylimit / rows * i;
-			m_nodes[i][j].m_width = xlimit / columns;
-			m_nodes[i][j].m_height = ylimit / rows;
+			m_nodes[i][j].m_x = 0 + xlimit / static_cast<float>(columns) * j;
+			m_nodes[i][j].m_y = 0 + ylimit / static_cast<float>(rows) * i;
+			m_nodes[i][j].m_width = xlimit / static_cast<float>(columns);
+			m_nodes[i][j].m_height = ylimit / static_cast<float>(rows);
 			m_nodes[i][j].m_state = ANodeState::NONE;
 			m_nodes[i][j].m_nextNode = 0;
 		}
@@ -245,18 +245,18 @@ void AStarDisplay::MouseMoved(const int& _mouseX, const int& _mouseY)
 		if (mousePressed != 0)
 		{
 			//old (i,j)
-			int oI = std::floor(mousePressed->y / (600 / m_rows));
-			int oJ = std::floor(mousePressed->x / (1000 / m_columns));
+			int oI = static_cast<int>(std::floor(mousePressed->y / (600.0f / m_rows)));
+			int oJ = static_cast<int>(std::floor(mousePressed->x / (1000.0f / m_columns)));
 
 			//new (i, j)
-			int nI = std::floor(_mouseY / (600 / m_rows));
-			int nJ = std::floor(_mouseX / (1000 / m_columns));
+			int nI = static_cast<int>(std::floor(_mouseY / (600.0f / m_rows)));
+			int nJ = static_cast<int>(std::floor(_mouseX / (1000.0f / m_columns)));
 
 			if (oI != nI || oJ != nJ)
 			{
 				HandleBoardClickEvent(nI, nJ);
-				mousePressed->x = _mouseX;
-				mousePressed->y = _mouseY;
+				mousePressed->x = static_cast<float>(_mouseX);
+				mousePressed->y = static_cast<float>(_mouseY);
 			}
 		}
 	}
@@ -276,12 +276,12 @@ void AStarDisplay::MousePressed(const int& _mouseX, const int& _mouseY)
 {
 	if (_mouseX < 1000 && _mouseY < 600)
 	{
-		mousePressed = new sf::Vector2f(_mouseX, _mouseY);
+		mousePressed = new sf::Vector2f(static_cast<float>(_mouseX), static_cast<float>(_mouseY));
 
-		int nI = std::round(_mouseY / (600 / m_rows));
-		int nJ = std::round(_mouseX / (1000 / m_columns));
+		int nI = static_cast<int>(std::floor(_mouseY / (600.0f / m_rows)));
+		int nJ = static_cast<int>(std::floor(_mouseX / (1000.0f / m_columns)));
 		m_isWalls = !(m_nodes[nI][nJ].m_state == ANodeState::WALL);
-		HandleBoardClickEvent(std::round(_mouseY / (600 / m_rows)), std::round(_mouseX / (1000 / m_columns)));
+		HandleBoardClickEvent(static_cast<int>(std::floor(_mouseY / (600.0f / m_rows))), static_cast<int>(std::floor(_mouseX / (1000.0f / m_columns))));
 	}
 	else
 	{
@@ -430,11 +430,11 @@ void AStarDisplay::DrawContents(BackBuffer& buffer)
 	m_pBackBuffer->SetColour(sf::Color::Black);
 	for (unsigned int i = 0; i < m_rows; i++)
 	{
-		m_pBackBuffer->DrawRectangle(0, -0.5f + static_cast<float>(m_nodes[0][0].m_height * i), m_width, 1);
+		m_pBackBuffer->DrawRectangle(0, -0.5f + static_cast<float>(m_nodes[0][0].m_height * i), static_cast<float>(m_width), 1);
 	}
 	for (unsigned int j = 0; j < m_columns; j++)
 	{
-		m_pBackBuffer->DrawRectangle(-0.5f + static_cast<float>(m_nodes[0][0].m_width * j), 0, 1, m_height);
+		m_pBackBuffer->DrawRectangle(-0.5f + static_cast<float>(m_nodes[0][0].m_width * j), 0, 1, static_cast<float>(m_height));
 	}
 
 	//Draw Buttons
@@ -471,12 +471,12 @@ void AStarDisplay::DrawValues(BackBuffer& buffer)
 			if (m_pStart == &m_nodes[i][j])
 			{	//Display the start node:
 				m_pBackBuffer->SetFontAlign(Align::Centre);
-				m_pBackBuffer->DrawText("S", m_nodes[i][j].m_x + m_nodes[i][j].m_width / 2, m_nodes[i][j].m_y + m_nodes[i][j].m_height / 2 - 7.5);
+				m_pBackBuffer->DrawText("S", m_nodes[i][j].m_x + m_nodes[i][j].m_width / 2, m_nodes[i][j].m_y + m_nodes[i][j].m_height / 2.0f - 7.5f);
 			}
 			else if (m_pEnd == &m_nodes[i][j])
 			{	//Display the end node:
 				m_pBackBuffer->SetFontAlign(Align::Centre);
-				m_pBackBuffer->DrawText("E", m_nodes[i][j].m_x + m_nodes[i][j].m_width / 2, m_nodes[i][j].m_y + m_nodes[i][j].m_height / 2 - 7.5);
+				m_pBackBuffer->DrawText("E", m_nodes[i][j].m_x + m_nodes[i][j].m_width / 2, m_nodes[i][j].m_y + m_nodes[i][j].m_height / 2.0f - 7.5f);
 			}
 
 			if (m_nodes[i][j].m_state != ANodeState::WALL)
@@ -592,7 +592,7 @@ void AStarDisplay::HandleBoardClickEvent(int i, int j)
 {
 	switch (m_userMode)
 	{
-	case START: //Create/move starting node
+	case AStarDisplay::Mode::START: //Create/move starting node
 		if (m_pStart != 0)
 			m_pStart->m_state = ANodeState::NONE;
 		m_pStart = &m_nodes[i][j];
@@ -600,7 +600,7 @@ void AStarDisplay::HandleBoardClickEvent(int i, int j)
 		m_btnRun->SetEnable(m_pStart != 0 && m_pEnd != 0);
 		break;
 
-	case END: //Create/move Ending node
+	case AStarDisplay::Mode::END: //Create/move Ending node
 		if (m_pEnd != 0)
 			m_pEnd->m_state = ANodeState::NONE;
 		m_pEnd = &m_nodes[i][j];
@@ -608,7 +608,7 @@ void AStarDisplay::HandleBoardClickEvent(int i, int j)
 		m_btnRun->SetEnable(m_pStart != 0 && m_pEnd != 0);
 		break;
 
-	case WALL: //Toggle wall:
+	case AStarDisplay::Mode::WALL: //Toggle wall:
 		if (m_isWalls)
 			m_nodes[i][j].m_state = ANodeState::WALL;
 		else
@@ -616,7 +616,7 @@ void AStarDisplay::HandleBoardClickEvent(int i, int j)
 
 		break;
 	default:
-	case NONE:
+	case AStarDisplay::Mode::NONE:
 		break;
 	}
 }
@@ -710,8 +710,8 @@ void AStarDisplay::RunAStar()
 	m_PrioQueue->pop();
 
 	//Get array location of this node:
-	int i = std::floor((thisNode->m_y + thisNode->m_height / 2) / (600 / m_rows));
-	int j = std::floor((thisNode->m_x + thisNode->m_width / 2) / (1000 / m_columns));
+	int i = static_cast<int>(std::floor((thisNode->m_y + thisNode->m_height / 2) / (600.0f / m_rows)));
+	int j = static_cast<int>(std::floor((thisNode->m_x + thisNode->m_width / 2) / (1000.0f / m_columns)));
 
 	//Update the node to selected.
 	m_nodes[i][j].m_state = ANodeState::SELECTED;
@@ -762,7 +762,7 @@ void AStarDisplay::RunAStar()
 //	@return  n/a
 void AStarDisplay::AddNodeToQueue(Node* source, int i, int j, int dist)
 {
-	if (i >= 0 && i < m_rows && j >= 0 && j < m_columns)
+	if (i >= 0 && i < static_cast<int>(m_rows) && j >= 0 && j < static_cast<int>(m_columns))
 	{
 		//Check if adjacent is a wall.
 		if (!CheckValid(source, i, j))
@@ -772,12 +772,12 @@ void AStarDisplay::AddNodeToQueue(Node* source, int i, int j, int dist)
 		//else:
 
 		//Location of the end:
-		int Ei = std::floor((m_pEnd->m_y + m_pEnd->m_height / 2) / (600 / m_rows));
-		int Ej = std::floor((m_pEnd->m_x + m_pEnd->m_width / 2) / (1000 / m_columns));
+		int Ei = static_cast<int>(std::floor((m_pEnd->m_y + m_pEnd->m_height / 2) / (600.0f / m_rows)));
+		int Ej = static_cast<int>(std::floor((m_pEnd->m_x + m_pEnd->m_width / 2) / (1000.0f / m_columns)));
 		
 		//Straight distance to the end:
-		int distI = static_cast<int>(std::sqrt(std::powf(Ei - i, 2)) * 10);
-		int distJ = static_cast<int>(std::sqrt(std::powf(Ej - j, 2)) * 10);
+		int distI = static_cast<int>(std::sqrt(std::powf(static_cast<float>(Ei - i), 2)) * 10);
+		int distJ = static_cast<int>(std::sqrt(std::powf(static_cast<float>(Ej - j), 2)) * 10);
 		if (m_pEnd == &m_nodes[i][j])
 		{
 			distI = 0;
@@ -821,9 +821,10 @@ bool AStarDisplay::CheckValid(Node* source, int i, int j)
 	{
 		return false;
 	}
+
 	//Get row/column coordinates of the source.
-	int Ei = std::floor((source->m_y + source->m_height / 2) / (600 / m_rows));
-	int Ej = std::floor((source->m_x + source->m_width / 2) / (1000 / m_columns));
+	int Ei = static_cast<int>(std::floor((source->m_y + source->m_height / 2) / (600.0f / m_rows)));
+	int Ej = static_cast<int>(std::floor((source->m_x + source->m_width / 2) / (1000.0f / m_columns)));
 
 	//Check adjacent1:
 	int distI = Ei - i;
